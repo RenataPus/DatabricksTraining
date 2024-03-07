@@ -47,7 +47,7 @@ jobs:
     steps:
     - name: Create Jira Issue and Report Deployment
       run: |
-        RESPONSE=$(curl -s -X POST -H "Authorization: Bearer $JIRA_API_TOKEN" -H "Content-Type: application/json" \
+        RESPONSE=$(curl -s -X POST -H "Authorization: Basic $JIRA_API_TOKEN" -H "Content-Type: application/json" \
           -d '{ "fields": { "project": { "key": "AQ" }, "summary": "Change request", "issuetype": { "name": "[System] Change" } } }' \
           "$JIRA_BASE_URL/rest/api/2/issue/")
         echo $RESPONSE
